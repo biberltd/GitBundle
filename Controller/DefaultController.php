@@ -6,10 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction($name)
     {
+        $vendorDir =  $this->get('kernel')->getRootDir()."/vendor";
         $client = $this->get('git.client');
-        $result = $client->clone_remote("/path/to","https://github.com/biberltd/gitbundle.git");
-        return $this->render('GitBundle:Default:index.html.twig', array('result' => $result));
+        $client->clone_remote("$vendorDir/biberltd/$name/","https://github.com/biberltd/$name.git");
+        return $this->render('GitBundle:Default:index.html.twig', array('result' => 'Repo succesfully cloned'));
     }
 }
