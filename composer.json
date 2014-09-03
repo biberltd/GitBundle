@@ -2,7 +2,7 @@
     "name": "biberltd/gitbundle",
     "type": "symfony-bundle",
     "description": "",
-    "keywords": [],
+    "keywords": ["github","bitbucket","git"],
     "homepage": "http://github.com/biberltd/GitBundle",
     "license": "MIT",
     "version": "master",
@@ -17,7 +17,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "BiberLtd\\GitBundle": "" }
+        "psr-0": { "BiberLtd\\Bundle\\GitBundle": "" }
 
     },
     "minimum-stability": "dev",
@@ -26,5 +26,5 @@
 		"dev-master" : "3.0.x-dev"
 		}
 	},
-    "target-dir": "BiberLtd/GitBundle"
+    "target-dir": "BiberLtd/Bundle/GitBundle"
 }
