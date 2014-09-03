@@ -2,7 +2,7 @@
 
 namespace BiberLtd\Bundle\GitBundle\Services;
 
-use BiberLtd\Bundle\GitBundle\Service\Gits;
+use BiberLtd\Bundle\GitBundle\Services\Gits;
 
 
 /**
@@ -25,8 +25,10 @@ class GitRepo {
      * Accepts a creation path, and, optionally, a source path
      *
      * @access  public
-     * @param   string  repository path
-     * @param   string  directory to source
+     * @param   string  $repo_path repository path
+     * @param   string  $source directory to source
+     * @param   bool  $remote_source
+     * @throws  \Exception
      * @return  GitRepo
      */
     public static function &create_new($repo_path, $source = null, $remote_source = false) {
@@ -53,9 +55,10 @@ class GitRepo {
      * Accepts a repository path
      *
      * @access  public
-     * @param   string  repository path
-     * @param   bool    create if not exists?
-     * @return  void
+     * @param   string $repo_path repository path
+     * @param   bool    $create_new create if not exists?
+     * @param   bool    $_init
+     * @throws  \Exception
      */
     public function __construct($repo_path = null, $create_new = false, $_init = true) {
         if (is_string($repo_path)) {
@@ -69,10 +72,10 @@ class GitRepo {
      * Accepts the repository path
      *
      * @access  public
-     * @param   string  repository path
-     * @param   bool    create if not exists?
-     * @param   bool    initialize new Git repo if not exists?
-     * @return  void
+     * @param   string  $repo_path repository path
+     * @param   bool    $create_new create if not exists?
+     * @param   bool    $_init initialize new Git repo if not exists?
+     * @throws  \Exception
      */
     public function set_repo_path($repo_path, $create_new = false, $_init = true) {
         if (is_string($repo_path)) {
@@ -150,6 +153,7 @@ class GitRepo {
      *
      * @access  protected
      * @param   string  command to run
+     * @throws  \Exception
      * @return  string
      */
     protected function run_command($command) {
@@ -343,7 +347,8 @@ class GitRepo {
      * Accepts a name for the branch
      *
      * @access  public
-     * @param   string  branch name
+     * @param   string  $branch branch name
+     * @param   bool  $force branch
      * @return  string
      */
     public function delete_branch($branch, $force = false) {

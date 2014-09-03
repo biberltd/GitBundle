@@ -10,12 +10,6 @@ class DefaultController extends Controller
     {
         $client = $this->get('git.client');
         $result = $client->clone_remote("/path/to","https://github.com/biberltd/gitbundle.git");
-        if (is_array($result)) {
-            $text = '';
-            foreach ($result as $item) {
-                $text .= $item;
-            }
-        }
-        return $this->render('GitBundle:Default:index.html.twig', array('result' => $text));
+        return $this->render('GitBundle:Default:index.html.twig', array('result' => $result));
     }
 }
