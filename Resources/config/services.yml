@@ -1,0 +1,10 @@
+parameters:
+#    git.class: BiberLtd\Bundle\GitBundle\Services\Git
+
+services:
+    git.client:
+        class: BiberLtd\Bundle\GitBundle\Services\Git
+        arguments: []
+    git.repo:
+        class: BiberLtd\Bundle\GitBundle\Services\GitRepo
+        arguments: []
