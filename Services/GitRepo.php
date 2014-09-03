@@ -1,8 +1,8 @@
 <?php
 
-namespace BiberLtd\Bundle\GitBundle\Service;
+namespace BiberLtd\Bundle\GitBundle\Services;
 
-use BiberLtd\Bundle\GitBundle\Service\Git;
+use BiberLtd\Bundle\GitBundle\Service\Gits;
 
 
 /**

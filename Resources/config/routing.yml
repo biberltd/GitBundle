@@ -1,3 +1,3 @@
 git_homepage:
-    path:     /hello/{name}
+    path:     /git/test
     defaults: { _controller: GitBundle:Default:index }

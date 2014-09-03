@@ -1,7 +1,7 @@
 <?php
-namespace BiberLtd\Bundle\GitBundle\Service;
+namespace BiberLtd\Bundle\GitBundle\Services;
 
-use BiberLtd\Bundle\GitBundle\Service\GitRepo;
+use BiberLtd\Bundle\GitBundle\Services\GitRepo;
 /**
  * Git Interface Class
  *
