@@ -31,7 +31,7 @@ class GitRepo {
      */
     public static function &create_new($repo_path, $source = null, $remote_source = false) {
         if (is_dir($repo_path) && file_exists($repo_path."/.git") && is_dir($repo_path."/.git")) {
-            throw new Exception('"'.$repo_path.'" is already a git repository');
+            throw new \Exception('"'.$repo_path.'" is already a git repository');
         } else {
             $repo = new self($repo_path, true, false);
             if (is_string($source)) {
@@ -97,11 +97,11 @@ class GitRepo {
                                 $this->run('init');
                             }
                         } else {
-                            throw new Exception('"'.$repo_path.'" is not a git repository');
+                            throw new \Exception('"'.$repo_path.'" is not a git repository');
                         }
                     }
                 } else {
-                    throw new Exception('"'.$repo_path.'" is not a directory');
+                    throw new \Exception('"'.$repo_path.'" is not a directory');
                 }
             } else {
                 if ($create_new) {
@@ -110,10 +110,10 @@ class GitRepo {
                         $this->repo_path = $repo_path;
                         if ($_init) $this->run('init');
                     } else {
-                        throw new Exception('cannot create repository in non-existent directory');
+                        throw new \Exception('cannot create repository in non-existent directory');
                     }
                 } else {
-                    throw new Exception('"'.$repo_path.'" does not exist');
+                    throw new \Exception('"'.$repo_path.'" does not exist');
                 }
             }
         }
@@ -186,7 +186,7 @@ class GitRepo {
         }
 
         $status = trim(proc_close($resource));
-        if ($status) throw new Exception($stderr);
+        if ($status) throw new \Exception($stderr);
 
         return $stdout;
     }
